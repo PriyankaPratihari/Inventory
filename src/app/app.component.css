@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.navbar-item {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+}
+
+.navbar-item.active {
+  background-color: #ddd;
+}
+
+#example1 {
+  background: black;
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+  padding: 15px;
+}
+
+.text-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.button {
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"] {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 50px;
+}
