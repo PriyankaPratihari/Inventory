@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: #f2f2f2;
+  background-color: #b1d4f6;
   padding: 10px;
 }
 
@@ -15,33 +15,24 @@
   background-color: #ddd;
 }
 
-#example1 {
-  background: black;
-  background-position: right bottom, left top;
-  background-repeat: no-repeat, repeat;
-  padding: 15px;
-}
+
 
 .text-bar {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: flex-end;
   padding: 10px;
+
   background-color: lightgray;
 }
 
-.button {
+#btnLogin {
   margin-left: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
   padding: 15px;
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #0056b3;
-}
+
 
 input[type="text"] {
   width: 200px;
@@ -50,3 +41,4 @@ input[type="text"] {
   border-radius: 5px;
   margin-left: 50px;
 }
+

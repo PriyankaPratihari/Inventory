@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface Product {
   id: string;
@@ -13,17 +14,29 @@ interface Product {
   styleUrls: ['./create.component.css']
 })
 export class CreateInventoryComponent {
-  
+
   product: Product = {
-    id: '',
+    id: '', // Leave the ID empty initially
     name: '',
     quantity: 0,
     price: 0
   };
+  myForm: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.myForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+    });
 
+  }
   submitForm() {
+    // Generate a unique ID for the product
+    const uniqueId = this.generateUniqueId();
+
+    // Set the generated ID for the product
+    this.product.id = uniqueId;
+
     // Get existing products from local storage
     const existingProducts = JSON.parse(localStorage.getItem('products') || '[]');
 
@@ -34,14 +47,33 @@ export class CreateInventoryComponent {
     localStorage.setItem('products', JSON.stringify(existingProducts));
 
     console.log('Product data saved successfully!');
-    alert("Button Clicked");
+    alert("Item added successfully");
 
     // Reset the form
     this.product = {
-      id: '',
+      id: '', // Reset the ID to empty
       name: '',
       quantity: 0,
       price: 0
     };
+
+    
   }
+ 
+
+  generateUniqueId(): string {
+    // Generate a unique ID using a combination of current timestamp and a random number
+    const timestamp = Date.now().toString();
+    const randomNum = Math.floor(Math.random() * 1000).toString();
+    return timestamp + randomNum;
+  }
+  // isFieldInvalid(fieldName: string) {
+  //   const field = this.myForm.get(fieldName);
+  //   return field.invalid && (field.touched || field.dirty);
+  // }
+
+  // isFieldTouched(fieldName: string) {
+  //   const field = this.myForm.get(fieldName);
+  //   return field.touched;
+  // }
 }
